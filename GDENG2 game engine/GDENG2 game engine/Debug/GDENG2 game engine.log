@@ -1,2 +1,13 @@
 ﻿  AppWindow.cpp
-  GDENG2 game engine.vcxproj -> C:\Users\weakl\source\repos\GDENG2 game engine\Debug\GDENG2 game engine.exe
+  ConstantBuffer.cpp
+  DeviceContext.cpp
+  GraphicsEngine.cpp
+  main.cpp
+  PixelShader.cpp
+  SwapChain.cpp
+  VertexBuffer.cpp
+  VertexShader.cpp
+  window.cpp
+  Generating Code...
+  LINK : C:\Users\weakl\Music\Gdeng2-GameEng\GDENG2 game engine\Debug\GDENG2 game engine.exe not found or not built by the last incremental link; performing full link
+  GDENG2 game engine.vcxproj -> C:\Users\weakl\Music\Gdeng2-GameEng\GDENG2 game engine\Debug\GDENG2 game engine.exe
