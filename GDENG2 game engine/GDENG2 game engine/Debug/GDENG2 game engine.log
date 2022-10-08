@@ -1,13 +1,5 @@
 ﻿  AppWindow.cpp
-  ConstantBuffer.cpp
-  DeviceContext.cpp
-  GraphicsEngine.cpp
-  main.cpp
-  PixelShader.cpp
-  SwapChain.cpp
-  VertexBuffer.cpp
-  VertexShader.cpp
-  window.cpp
-  Generating Code...
-  LINK : C:\Users\weakl\Music\Gdeng2-GameEng\GDENG2 game engine\Debug\GDENG2 game engine.exe not found or not built by the last incremental link; performing full link
+C:\Users\weakl\Music\Gdeng2-GameEng\GDENG2 game engine\GDENG2 game engine\AppWindow.cpp(65,2): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\weakl\Music\Gdeng2-GameEng\GDENG2 game engine\GDENG2 game engine\AppWindow.cpp(115,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\weakl\Music\Gdeng2-GameEng\GDENG2 game engine\GDENG2 game engine\AppWindow.cpp(118,53): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
   GDENG2 game engine.vcxproj -> C:\Users\weakl\Music\Gdeng2-GameEng\GDENG2 game engine\Debug\GDENG2 game engine.exe

@@ -31,6 +31,9 @@
     <Filter Include="Engine\Constant Buffer">
       <UniqueIdentifier>{d26cde56-0b0f-41fc-80a6-4a09f38f3f87}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\TIME">
+      <UniqueIdentifier>{018f594a-0ff9-4eb9-bbc5-d50eee567240}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -63,6 +66,9 @@
     <ClCompile Include="ConstantBuffer.cpp">
       <Filter>Engine\Constant Buffer</Filter>
     </ClCompile>
+    <ClCompile Include="EngineTime.cpp">
+      <Filter>Engine\TIME</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppWindow.h">
@@ -91,6 +97,9 @@
     </ClInclude>
     <ClInclude Include="ConstantBuffer.h">
       <Filter>Engine\Constant Buffer</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineTime.h">
+      <Filter>Engine\TIME</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

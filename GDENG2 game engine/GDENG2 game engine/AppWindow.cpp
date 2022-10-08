@@ -1,4 +1,6 @@
 #include "AppWindow.h"
+#include "EngineTime.h"
+
 
 struct vec3
 {
@@ -39,48 +41,30 @@ void AppWindow::onCreate()
 
 	vertex list[] =
 	{
-		//triangle list
-		//X - Y - Z
-		/*{-0.5f,-0.5f,0.0f}, // POS1
-		{-0.5f,0.5f,0.0f}, // POS2
-		{ 0.5f,-0.5f,0.0f },// POS3
 		
-		{0.5f,0.5f,0.0f}, // POS1
-		{0.5f,-0.5f,0.0f}, // POS2
-		{ -0.5f,-0.5f,0.0f }// POS3*/
-
-		//triangle strip approach
-		/*rgb rect
-		{-0.5f,-0.5f,0.0f, 1,0,0}, // POS1
-		{-0.5f,0.5f,0.0f,  0,1,0}, // POS2
-		{ 0.5f,-0.5f,0.0f, 0,0,1 },// POS3
-		{ 0.5f,0.5f,0.0f,  1,1,0} // pos4*/
-
-		/*rgb triangle
-		{-0.5f,0.0f,0.0f, 0,1,0}, // POS1
-		{0.0f,0.5f,0.0f,  0,1,0}, // POS2
-		{ 0.5f,0.0f,0.0f, 0,1,0 },// POS3*/
-
-
-		/*green rect
-		{-0.5f,-0.5f,0.0f, 0,1,0}, // POS1
-		{-0.5f,0.5f,0.0f,  0,1,0}, // POS2
-		{ 0.5f,-0.5f,0.0f, 0,1,0 },// POS3
-		{ 0.5f,0.5f,0.0f,  0,1,0} // pos4*/
-
 
 		//X - Y - Z
-		{-0.5f,-0.5f,0.0f,    -0.25f,-0.25f,0.0f,   1,0,0,  0,0,1 }, // POS1
+		/*{-0.5f,-0.5f,0.0f,    -0.25f,-0.25f,0.0f,   1,0,0,  0,0,1}, // POS1
 		{-0.5f,0.5f,0.0f,     -0.25f,0.75f,0.0f,    0,1,0,  0.5f,0.5f,0.5f }, // POS2
 		{ 0.5f,-0.5f,0.0f,     0.75f,-0.25f,0.0f,   0,0,1,  1,0,0 },// POS2
-		{ 0.5f,0.5f,0.0f,      0.75f,0.75f,0.0f,    1,0,0,  0,0,1 }
+		{ 0.5f,0.5f,0.0f,      0.75f,0.75f,0.0f,    1,0,0,  0,0,1 }*/
 
 
-		/*{-0.5f,-0.5f,0.0f,    -0.32f,-0.11f,0.0f,   0,0,0,  0,1,0 }, // POS1
-		{-0.5f,0.5f,0.0f,     -0.11f,0.78f,0.0f,    1,1,0,  0,1,1 }, // POS2
-		{ 0.5f,-0.5f,0.0f,     0.75f,-0.73f,0.0f,   0,0,1,  1,0,0 },// POS2
-		{ 0.5f,0.5f,0.0f,      0.88f,0.77f,0.0f,    1,1,1,  0,0,1 }*/
+		{-0.51f,-0.38f,0.0f,    -0.81f,-0.92,0.0,   0,0,0,  0,1,0 }, // POS1
+		{-0.43f,0.38f,0.0f,     -0.92f,0.53,0.0f,    1,1,0,  0,1,1 }, // POS2
+		{ 0.35f,-0.72f,0.0f,     0.98,-0.77f,0.0f,   0,0,1,  1,0,0 },// POS2
+		{ 0.64f,0.72f,0.0f,      -0.81f,-0.92,0.0,    1,1,1,  0,0,1 }
+
+		//square translation
+		/*{-0.32f,-0.11f,0.0f,    -0.82,-0.61,0.0f,   0,0,0,  0,1,0}, // POS1
+		{-0.11f,0.78f,0.0f,     -0.61f,0.28f,0.0f,    1,1,0,  0,1,1 }, // POS2
+		{ 0.75f,-0.73f,0.0f,     0.25f,-0.99f,0.0f,   0,0,1,  1,0,0 },// POS2
+		{ 0.88f,0.77f,0.0f,      0.38f,0.27f,0.0f,    1,1,1,  0,0,1 }*/
+
+
 	};
+
+		
 
 	m_vb = GraphicsEngine::get()->createVertexBuffer();
 	UINT size_list = ARRAYSIZE(list);
@@ -112,6 +96,7 @@ void AppWindow::onCreate()
 	m_cb->load(&cc, sizeof(constant));
 
 
+
 }
 
 void AppWindow::onUpdate()
@@ -124,13 +109,13 @@ void AppWindow::onUpdate()
 	RECT rc = this->getClientWindowRect();
 	GraphicsEngine::get()->getImmediateDeviceContext()->setViewportSize(rc.right - rc.left, rc.bottom - rc.top);
 
+	
 	unsigned long new_time = 0;
-	if (m_old_time)
-		new_time = ::GetTickCount() - m_old_time;
-	m_delta_time = new_time / 1000.0f;
-	m_old_time = ::GetTickCount();
+	
+	float anim_speed = rand() % 10 + EngineTime::getDeltaTime() * (rand() % 100 - rand() % 10);
+	//std::cout << "Frame update Finish in:" << anim_speed << "\n";
 
-	m_angle += 1.57f * m_delta_time;
+	m_angle +=  anim_speed * EngineTime::getDeltaTime();
 	constant cc;
 	cc.m_angle = m_angle;
 
